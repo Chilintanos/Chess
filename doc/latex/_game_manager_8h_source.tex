@@ -1,0 +1,77 @@
+\doxysection{Game\+Manager.\+h}
+\hypertarget{_game_manager_8h_source}{}\label{_game_manager_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ "{}resources.h"{}}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}figure.h"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}Field.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}color\_rect\_changer.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}SimpleButton.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <ctime>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <SFML/Graphics.hpp>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_game_manager}{GameManager}}\ :\ \mbox{\hyperlink{struct_field}{Field}}}
+\DoxyCodeLine{00012\ \{}
+\DoxyCodeLine{00013\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{int}\ current\_cell\_size;}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_timer;}
+\DoxyCodeLine{00016\ \ \ \ \ time\_t\ start\_time;}
+\DoxyCodeLine{00017\ \ \ \ \ time\_t\ black\_time;}
+\DoxyCodeLine{00018\ \ \ \ \ time\_t\ white\_time;}
+\DoxyCodeLine{00019\ \ \ \ \ time\_t\ prev\_frame;}
+\DoxyCodeLine{00020\ \ \ \ \ time\_t\ cur\_frame;}
+\DoxyCodeLine{00021\ \ \ \ \ time\_t\ target\_time;}
+\DoxyCodeLine{00022\ \ \ \ \ time\_t\ decrease\_time;}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_game\_ends;}
+\DoxyCodeLine{00024\ \ \ \ \ std::vector<Figure>\ reserved\_turn;}
+\DoxyCodeLine{00025\ \ \ \ \ figurecolor\ reserved\_turn\_color;}
+\DoxyCodeLine{00026\ \ \ \ \ figurecolor\ who\_win;}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_playing;}
+\DoxyCodeLine{00028\ \ \ \ \ figurecolor\ current\_turn\_color;}
+\DoxyCodeLine{00029\ \ \ \ \ sf::RenderWindow\ window;}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{void}\ win(figurecolor\ color);}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{void}\ draw\_field();}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{void}\ turn\_turn\_back();}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{void}\ turn\_to(std::pair<int,\ int>\ position);}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_have\_check(std::vector<Figure>\ \_figures,\ figurecolor\ color);}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{void}\ init\_field();}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{void}\ draw\_figures();}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{void}\ draw\_turns();}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{void}\ change\_turn();}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{void}\ draw\_tile(std::pair<int,\ int>,\ sf::Color);}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{void}\ mouse\_clicked();}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{bool}\ on\_mouse\_in\_tile(std::pair<int,\ int>\ position);}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_figures\_texture\_color(figurecolor\ fig\_color,\ sf::Color\ color);}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_figures\_cell\_size(\textcolor{keywordtype}{int}\ size);}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{void}\ reset()\ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ is\_timer\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ black\_time\ =\ 0;}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ white\_time\ =\ 0;}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ target\_time\ =\ 0;}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ decrease\_time\ =\ 0;}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ cur\_frame\ =\ time(NULL);}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ start\_time\ =\ time(NULL);}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_field_a3fa9ced13701bf7181e25784e29d22cf}{figures}}.clear();}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ who\_win\ =\ color\_none;}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ is\_game\_ends\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ current\_turn\_color\ =\ black;}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ reserved\_turn\_color\ =\ current\_turn\_color;}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ init\_field();}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ set\_figures\_cell\_size(current\_cell\_size);}
+\DoxyCodeLine{00061\ \ \ \ \ \}}
+\DoxyCodeLine{00062\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00063\ \ \ \ \ \mbox{\hyperlink{class_game_manager}{GameManager}}()\ \{}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ current\_cell\_size\ =\ 50;}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ reset();}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ window.create(sf::VideoMode(windowsize.first,\ windowsize.second),\ window\_name,\ sf::Style::Default);}
+\DoxyCodeLine{00067\ \ \ \ \ \}}
+\DoxyCodeLine{00068\ \ \ \ \ }
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_game_manager_a639cfe04af09c17793cdb29c43bdabc1}{is\_window\_open}}();}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_manager_af626188d295eb5fabe1d877905d0f9be}{Step}}();}
+\DoxyCodeLine{00077\ \};}
+\DoxyCodeLine{00078\ }
+
+\end{DoxyCode}

@@ -1,0 +1,71 @@
+\doxysection{Field Struct Reference}
+\hypertarget{struct_field}{}\label{struct_field}\index{Field@{Field}}
+Inheritance diagram for Field\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{struct_field}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{struct_field_a5271b72e7126304c002df4c8e3c830be}\label{struct_field_a5271b72e7126304c002df4c8e3c830be} 
+bool {\bfseries is\+\_\+king\+\_\+nearby} (figurecolor which\+\_\+one, std\+::pair$<$ int, int $>$ position)
+\begin{DoxyCompactList}\small\item\em Checks for the presence of a king of a given color in adjacent cells. \end{DoxyCompactList}\item 
+\Hypertarget{struct_field_ab5056bc3029808e7708902e472373687}\label{struct_field_ab5056bc3029808e7708902e472373687} 
+void {\bfseries make\+\_\+turns} (\mbox{\hyperlink{class_figure}{Figure}} figure, figurecolor current\+\_\+turn\+\_\+color)
+\begin{DoxyCompactList}\small\item\em Create a vector of all possible moves of the selected figure. \end{DoxyCompactList}\item 
+\Hypertarget{struct_field_ab6b5f58003267461221dcfeb55ac2337}\label{struct_field_ab6b5f58003267461221dcfeb55ac2337} 
+void {\bfseries simple\+\_\+make\+\_\+turns} (\mbox{\hyperlink{class_figure}{Figure}} figure, figurecolor current\+\_\+turn\+\_\+color)
+\begin{DoxyCompactList}\small\item\em Create a vector of all possible moves of the selected figure withou checking on check. \end{DoxyCompactList}\item 
+\Hypertarget{struct_field_a9e279d041f1ad111eae9090e25a61eb3}\label{struct_field_a9e279d041f1ad111eae9090e25a61eb3} 
+void {\bfseries reset\+\_\+chsn\+\_\+and\+\_\+turns} ()
+\begin{DoxyCompactList}\small\item\em reset turns and choosen \end{DoxyCompactList}\item 
+\Hypertarget{struct_field_acdaaadeb5f5b8ae3427aec0593061711}\label{struct_field_acdaaadeb5f5b8ae3427aec0593061711} 
+\mbox{\hyperlink{class_figure}{Figure}} {\bfseries get\+\_\+figure} (std\+::pair$<$ int, int $>$ position)
+\begin{DoxyCompactList}\small\item\em retrieves figures from a given position \end{DoxyCompactList}\item 
+\Hypertarget{struct_field_a10df03f04a5bdac7432e111260898bb0}\label{struct_field_a10df03f04a5bdac7432e111260898bb0} 
+\mbox{\hyperlink{class_figure}{Figure}} {\bfseries get\+\_\+selected} ()
+\begin{DoxyCompactList}\small\item\em retrieves choosen figure \end{DoxyCompactList}\item 
+\Hypertarget{struct_field_a429c9c805b22a027e6dc2dbc68c37cea}\label{struct_field_a429c9c805b22a027e6dc2dbc68c37cea} 
+bool {\bfseries is\+\_\+in\+\_\+field} (std\+::pair$<$ int, int $>$ coord)
+\begin{DoxyCompactList}\small\item\em checks whether the figure is on the field \end{DoxyCompactList}\item 
+\Hypertarget{struct_field_abb6cf0497c6453b14e3e23f6f2ff48cc}\label{struct_field_abb6cf0497c6453b14e3e23f6f2ff48cc} 
+int {\bfseries get\+\_\+selected\+\_\+index} ()
+\begin{DoxyCompactList}\small\item\em retrieves index of choosen figure \end{DoxyCompactList}\item 
+\Hypertarget{struct_field_a2ea066c45ccd5ace6e70fdd2c2a372e5}\label{struct_field_a2ea066c45ccd5ace6e70fdd2c2a372e5} 
+int {\bfseries get\+\_\+figure\+\_\+index} (std\+::pair$<$ int, int $>$ position)
+\begin{DoxyCompactList}\small\item\em retrieves index of figures from a given position \end{DoxyCompactList}\item 
+\Hypertarget{struct_field_a0ef51f49e7d2023cbba5b1328f157ed8}\label{struct_field_a0ef51f49e7d2023cbba5b1328f157ed8} 
+bool {\bfseries delete\+\_\+at} (std\+::pair$<$ int, int $>$ position)
+\begin{DoxyCompactList}\small\item\em deletes a shape at a given position \end{DoxyCompactList}\item 
+\Hypertarget{struct_field_a2fb9df0af460ecdcca8034edf163e50c}\label{struct_field_a2fb9df0af460ecdcca8034edf163e50c} 
+bool {\bfseries is\+\_\+check} (figurecolor to\+\_\+whom)
+\begin{DoxyCompactList}\small\item\em checks on the check \end{DoxyCompactList}\item 
+\Hypertarget{struct_field_a7f7cf1dd154cb93c7cbffbb5f02e8bad}\label{struct_field_a7f7cf1dd154cb93c7cbffbb5f02e8bad} 
+bool {\bfseries is\+\_\+mate} (figurecolor to\+\_\+whom)
+\begin{DoxyCompactList}\small\item\em checks for a checkmate \end{DoxyCompactList}\item 
+\Hypertarget{struct_field_a1311ea824324de6d75d219e84a8ebb24}\label{struct_field_a1311ea824324de6d75d219e84a8ebb24} 
+\mbox{\hyperlink{class_figure}{Figure}} {\bfseries get\+\_\+king} (figurecolor which\+\_\+one)
+\begin{DoxyCompactList}\small\item\em getting the king of a given color \end{DoxyCompactList}\item 
+\Hypertarget{struct_field_af4c78853eb3fedfdcd5f62489ab4f8d9}\label{struct_field_af4c78853eb3fedfdcd5f62489ab4f8d9} 
+int {\bfseries get\+\_\+king\+\_\+index} (figurecolor which\+\_\+one)
+\begin{DoxyCompactList}\small\item\em getting the index of king of a given color \end{DoxyCompactList}\item 
+\Hypertarget{struct_field_ad6bdb39fce3c508561c8983ba53ddbe4}\label{struct_field_ad6bdb39fce3c508561c8983ba53ddbe4} 
+bool {\bfseries check\+\_\+check} (figurecolor to\+\_\+whom, std\+::pair$<$ int, int $>$ from\+\_\+pos, std\+::pair$<$ int, int $>$ to\+\_\+pos)
+\begin{DoxyCompactList}\small\item\em checks on the check in given position \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{struct_field_a9294f44cd6c87181fb0a2a1067806975}\label{struct_field_a9294f44cd6c87181fb0a2a1067806975} 
+std\+::vector$<$ std\+::pair$<$ int, int $>$ $>$ {\bfseries turns}
+\begin{DoxyCompactList}\small\item\em Vector of all possible moves of the selected figure. \end{DoxyCompactList}\item 
+\Hypertarget{struct_field_a3fa9ced13701bf7181e25784e29d22cf}\label{struct_field_a3fa9ced13701bf7181e25784e29d22cf} 
+std\+::vector$<$ \mbox{\hyperlink{class_figure}{Figure}} $>$ {\bfseries figures}
+\begin{DoxyCompactList}\small\item\em vector of all figures \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Field.\+h\item 
+Field.\+cpp\end{DoxyCompactItemize}

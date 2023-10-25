@@ -1,0 +1,77 @@
+\doxysection{color\+\_\+rect\+\_\+changer.\+h}
+\hypertarget{color__rect__changer_8h_source}{}\label{color__rect__changer_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ <SFML/Graphics.hpp>}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00003\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classcolor__rect__changer}{color\_rect\_changer}}\ :\ \textcolor{keyword}{public}\ sf::Drawable}
+\DoxyCodeLine{00004\ \{}
+\DoxyCodeLine{00005\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00006\ \ \ \ \ \textcolor{keywordtype}{int}\ current\_ind;}
+\DoxyCodeLine{00007\ \ \ \ \ sf::Vector2f\ position;}
+\DoxyCodeLine{00008\ \ \ \ \ sf::Vector2f\ size;}
+\DoxyCodeLine{00009\ \ \ \ \ sf::Color\ current\_value;}
+\DoxyCodeLine{00010\ \ \ \ \ std::vector<sf::Color>\ color\_array;}
+\DoxyCodeLine{00011\ \ \ \ \ sf::Color\ opposite\_color;}
+\DoxyCodeLine{00012\ \ \ \ \ sf::RectangleShape\ rect;}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{classcolor__rect__changer}{color\_rect\_changer}}(sf::Vector2f\ \_position,\ sf::Vector2f\ \_size,\ std::vector<sf::Color>\ \_color\_array,\ sf::Color\ \_opposite\_color)\ :\ color\_array(\_color\_array)\ \{}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ position\ =\ \_position;}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ size\ =\ \_size;}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ opposite\_color\ =\ \_opposite\_color;}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ current\_ind\ =\ 0;}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ rect.setPosition(position);}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ rect.setSize(size);}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ next();}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ prev();}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ rect.setFillColor(current\_value);}
+\DoxyCodeLine{00024\ \ \ \ \ \}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{void}\ next()\ \{}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (\textcolor{keyword}{true})\ \{}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ current\_ind++;}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (current\_ind\ >=\ color\_array.size())\ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ current\_ind\ =\ 0;}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ current\_value\ =\ color\_array[current\_ind];}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (current\_value\ !=\ opposite\_color)\textcolor{keywordflow}{break};}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ rect.setFillColor(current\_value);}
+\DoxyCodeLine{00036\ \ \ \ \ \}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{void}\ prev()\ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (\textcolor{keyword}{true})\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ current\_ind-\/-\/;}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (current\_ind\ <\ 0)\ \{}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ current\_ind\ =\ color\_array.size()-\/1;}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ current\_value\ =\ color\_array[current\_ind];}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (current\_value\ !=\ opposite\_color)\textcolor{keywordflow}{break};}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ rect.setFillColor(current\_value);}
+\DoxyCodeLine{00048\ \ \ \ \ \}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_mouse\_on(sf::RenderWindow\ \&window)\ \{}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ mouse\_x\ =\ sf::Mouse::getPosition(window).x;}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ mouse\_y\ =\ sf::Mouse::getPosition(window).y;}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ start\_pos\_x\ =\ position.x;}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ start\_pos\_y\ =\ position.y;}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ end\_pos\_x\ =\ position.x\ +\ size.x;}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ end\_pos\_y\ =\ position.y\ +\ size.y;}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (mouse\_x\ >\ start\_pos\_x\ \&\&\ mouse\_x\ <\ end\_pos\_x\ \&\&\ mouse\_y\ >\ start\_pos\_y\ \&\&\ mouse\_y\ <\ end\_pos\_y)\ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00061\ \ \ \ \ \}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ draw(sf::RenderTarget\&\ target,\ sf::RenderStates\ states)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00066\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ You\ can\ draw\ other\ high-\/level\ objects}}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ target.draw(rect\ ,\ states);}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \}}
+\DoxyCodeLine{00071\ \};}
+\DoxyCodeLine{00072\ }
+
+\end{DoxyCode}
