@@ -1,0 +1,3 @@
+C:/Users/n8122/Downloads/Chessk/project/build/CMakeFiles/Chess.dir
+C:/Users/n8122/Downloads/Chessk/project/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/n8122/Downloads/Chessk/project/build/CMakeFiles/ZERO_CHECK.dir
